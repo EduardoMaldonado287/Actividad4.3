@@ -1,6 +1,3 @@
-class Vertice;
-//#include "Lista.h"
-
 class Vertice 
 {
 public:

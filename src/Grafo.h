@@ -14,7 +14,6 @@ public:
         headArista = nullptr;
     }
 
-    // Adds the specified data in the last position of the list
     void addVertice(string data)
     {
         if (verticeSize==0){
@@ -28,55 +27,6 @@ public:
             tail = aux;
             verticeSize ++;
         }
-    }
-
-    Vertice *findAndGetVertice(string ipAddress)
-    {
-        Vertice *searchVertice = head;
-        int verticeCounter;
-
-        while(searchVertice->getData() != ipAddress)
-        {
-            verticeCounter++;
-            searchVertice = searchVertice->getNext();
-        }
-        return searchVertice;
-    }
-
-    // int getVerticePosition(string ipAddress)
-    // {
-    //     Vertice *searchVertice = head;
-    //     int verticeCounter = 0;
-
-    //     while(searchVertice->getData() != ipAddress)
-    //     {
-    //         verticeCounter++;
-    //         searchVertice = searchVertice->getNext();
-    //     }
-    //     return verticeCounter;
-    // }
-
-    Arista *findAndGetAristaByString(string sourceIp, string destinationIp)
-    {
-        Arista *searchArista = headArista;
-
-        while (searchArista->getViInfo() != sourceIp && searchArista->getVjInfo() != destinationIp)
-        {
-            searchArista = searchArista->getNext();
-        }
-        return searchArista;
-    }
-
-
-    Arista *findAndGetArista(int ip)
-    {
-        Arista *searchArista = headArista;
-
-        while (searchArista->getAristaId() != ip)
-        {
-            searchArista = searchArista->getNext();
-        }
-        return searchArista;
     }
 
     void addArista(string sourceIpAddress, string destinationIpAddress)
@@ -101,6 +51,42 @@ public:
             currentArista->setNext(newArista);
             aristaSize++;
         }
+    }
+
+    Vertice *findAndGetVertice(string ipAddress)
+    {
+        Vertice *searchVertice = head;
+        int verticeCounter;
+
+        while(searchVertice->getData() != ipAddress)
+        {
+            verticeCounter++;
+            searchVertice = searchVertice->getNext();
+        }
+        return searchVertice;
+    }
+
+    Arista *findAndGetAristaByString(string sourceIp, string destinationIp)
+    {
+        Arista *searchArista = headArista;
+
+        while (searchArista->getViInfo() != sourceIp && searchArista->getVjInfo() != destinationIp)
+        {
+            searchArista = searchArista->getNext();
+        }
+        return searchArista;
+    }
+
+
+    Arista *findAndGetArista(int ip)
+    {
+        Arista *searchArista = headArista;
+
+        while (searchArista->getAristaId() != ip)
+        {
+            searchArista = searchArista->getNext();
+        }
+        return searchArista;
     }
 
     void printVertices()
